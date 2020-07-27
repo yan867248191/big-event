@@ -34,7 +34,7 @@ $(function(){
             username:$('#form_reg [name = username]').val(),
             password:$('#form_reg [name = password]').val()
         }
-        $.post('http://ajax.frontend.itheima.net/api/reguser',data,function(res){
+        $.post('/api/reguser',data,function(res){
             if(res.status != 0){
                 return layer.msg(res.message)
             }
@@ -45,26 +45,26 @@ $(function(){
     })
 
 
-    // // 监听登录提交功能
-    // $('#form_login').submit(function(e){
-    //     e.preventDefault()
+    // 监听登录提交功能
+    $('#form_login').submit(function(e){
+        e.preventDefault()
 
-    //     $.ajax({
-    //         url:'http://ajax.frontend.itheima.net/api/login',
-    //         method:'POST',
-    //         data:$(this).serialize(),
-    //         success:function(res){
-    //             if(res.status != 0){
-    //                 return layer.msg('登录失败！')
-    //             }
-    //             layer.msg('登录成功！')
+        $.ajax({
+            url:'/api/login',
+            method:'POST',
+            data:$(this).serialize(),
+            success:function(res){
+                if(res.status != 0){
+                    return layer.msg('登录失败！')
+                }
+                layer.msg('登录成功！')
 
-    //             // 将登录成功得到的token字符串，保存到localstorage中
-    //             localStorage.setItem('token',res.token)
+                // 将登录成功得到的token字符串，保存到localstorage中
+                localStorage.setItem('token',res.token)
 
-    //             localStorage.href = '/index.html'
-    //         }
-    //     })
-    // })
+                location.href = '/index.html'
+            }
+        })
+    })
 
 })
