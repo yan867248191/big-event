@@ -20,6 +20,7 @@
               <li class="layui-nav-item">
                 <a href="javascript:;">
                   <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                  <span class="text-avatar">A</span>
                   个人中心
                 </a>
                 <dl class="layui-nav-child">
@@ -28,7 +29,7 @@
                   <dd><a href="javascript:;">重置密码</a></dd>
                 </dl>
               </li>
-              <li class="layui-nav-item"><a href="">
+              <li class="layui-nav-item" id="btnLogout"><a href="javascript:;">
                 <span class="iconfont icon-tuichu"></span>退出</a>
               </li>
             </ul>
@@ -37,9 +38,14 @@
           <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
               <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+              <div class="userinfo">
+                <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+                <span class="text-avatar">A</span>
+                <span id="welcome">欢迎 ***</span>
+            </div>
               <ul class="layui-nav layui-nav-tree" lay-shrink="all">
-                <li class="layui-nav-item">
-                  <a href="/">
+                <li class="layui-nav-item layui-this ">
+                  <a href="/home/dashboard.html" target="fm"   >
                     <span class="iconfont icon-home"></span>首页
                   </a>
                 </li>
@@ -64,9 +70,15 @@
                         <span class="iconfont icon-user"></span>个人中心
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">基本资料</a></dd>
-                        <dd><a href="javascript:;">更换头像</a></dd>
-                        <dd><a href="javascript:;">重置密码</a></dd>
+                        <dd><a href="javascript:;">
+                          <i class="layui-icon layui-icon-app"></i>基本资料</a>
+                        </dd>
+                        <dd><a href="javascript:;">
+                          <i class="layui-icon layui-icon-app"></i>更换头像</a>
+                        </dd>
+                        <dd><a href="javascript:;">
+                          <i class="layui-icon layui-icon-app"></i>重置密码</a>
+                        </dd>
                     </dl>
                 </li>
               </ul>
@@ -75,7 +87,7 @@
           
           <div class="layui-body">
             <!-- 内容主体区域 -->
-            <div style="padding: 15px;">内容主体区域</div>
+            <iframe name="fm" src="/home/dashboard.html" frameborder="0"></iframe>
           </div>
           
           <div class="layui-footer">
@@ -86,7 +98,7 @@
 
         <script src="./assets/lib/layui/layui.all.js"></script>
         <script src="./assets/lib/jquery.js"></script>
-
+        <script src="./assets/js/baseAPI.js"></script>
         <script src="./assets/js/index.js"></script>
 </body>
 </html>
